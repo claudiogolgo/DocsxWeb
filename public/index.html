@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DocsxWeb — Busca Receita Federal SIJUT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">DX</div>
+        <div>
+          <h1>DocsxWeb</h1>
+          <p class="subtitle">Busca normativa tributária — Receita Federal SIJUT + RAG</p>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="secondary" id="exemploBtn" type="button">Exemplo</button>
+        <button class="ghost" id="clearBtn" type="button">Limpar</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="searchbox">
+        <div class="eyebrow">Revisão Fiscal por Inteligência Normativa</div>
+        <h2 class="headline">Pesquise soluções de consulta da Receita e gere RAG tributário filtrado.</h2>
+        <p class="lead">O motor atual consulta o SIJUT, filtra apenas cards contendo todos os argumentos obrigatórios e monta o RAG com até 50 resultados válidos.</p>
+        <div class="query-row">
+          <input id="query" placeholder="Ex.: crédito presumido E leite E PIS" autocomplete="off" />
+          <button id="btn" type="button">Pesquisar</button>
+        </div>
+        <div class="chips">
+          <span class="chip" data-q="crédito E frete E COFINS">Frete + COFINS</span>
+          <span class="chip" data-q="insumo E PIS E COFINS">Insumos PIS/COFINS</span>
+          <span class="chip" data-q="crédito presumido E leite E PIS">Crédito presumido leite</span>
+          <span class="chip" data-q="monofásico E alíquota zero E PIS">Monofásico / alíquota zero</span>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <div class="eyebrow">Painel da Consulta</div>
+        <div class="stats">
+          <div class="stat"><b id="statBrutos">0</b><span>brutos extraídos</span></div>
+          <div class="stat"><b id="statValidos">0</b><span>cards válidos</span></div>
+          <div class="stat"><b>50</b><span>máximo no RAG</span></div>
+          <div class="stat"><b id="statTime">—</b><span>última pesquisa</span></div>
+        </div>
+        <p class="lead small">Regra atual: com conector <b>E</b> ou <b>AND</b>, cada trecho vira argumento obrigatório.</p>
+      </aside>
+    </section>
+
+    <section id="status" class="status">Digite uma pesquisa para iniciar.</section>
+
+    <section class="result-layout">
+      <article class="ai-box priority">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Interpretação</div>
+            <h2>Leitura jurídica do RAG</h2>
+          </div>
+          <span class="badge">Topo</span>
+        </div>
+        <div id="interpretacao" class="interpretacao empty-state">A interpretação aparecerá aqui após a pesquisa.</div>
+      </article>
+
+      <article class="ai-box">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Resultados válidos</div>
+            <h2>Cards considerados no RAG</h2>
+          </div>
+          <span class="badge" id="cardsBadge">0</span>
+        </div>
+        <section id="resultados" class="cards"><div class="empty">Faça uma pesquisa para consultar a Receita Federal.</div></section>
+      </article>
+
+      <article class="ai-box">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">RAG</div>
+            <h2>Contexto enviado para interpretação</h2>
+          </div>
+          <button class="secondary compact" id="copyRag" type="button">Copiar RAG</button>
+        </div>
+        <pre id="rag" class="rag">RAG vazio.</pre>
+      </article>
+
+      <article class="ai-box debug-box">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Debug</div>
+            <h2>Consulta executada</h2>
+          </div>
+        </div>
+        <pre id="debug" class="debug">—</pre>
+      </article>
+    </section>
+
+    <footer>DocsxWeb exibe links e resumos para descoberta. A íntegra permanece nas fontes oficiais da Receita Federal.</footer>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

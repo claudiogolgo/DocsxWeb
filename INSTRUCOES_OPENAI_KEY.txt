@@ -1,0 +1,19 @@
+COMO ATIVAR A INTERPRETAÇÃO JURÍDICA DO RAG
+
+1) Na pasta do projeto, crie o arquivo .env:
+
+   cp .env.example .env
+
+2) Abra o arquivo .env e substitua:
+
+   OPENAI_API_KEY=sk-cole_sua_chave_real_aqui
+
+   pela sua chave real da OpenAI.
+
+3) Salve o arquivo.
+
+4) Reinicie o servidor:
+
+   npm start
+
+Sem a OPENAI_API_KEY, o app continuará pesquisando, mostrando cards e montando o RAG, mas não fará a interpretação automática.

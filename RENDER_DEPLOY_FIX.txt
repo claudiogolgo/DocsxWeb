@@ -1,0 +1,20 @@
+CORREÇÃO PARA RENDER
+
+1. Este pacote remove o package-lock.json antigo.
+2. O package.json fixa Node 22.x e dependências estáveis.
+3. O arquivo .npmrc força o registry público do npm.
+
+No Render use:
+
+Build Command:
+npm install --omit=dev
+
+Start Command:
+node server.js
+
+Environment Variables:
+OPENAI_API_KEY = sua chave real
+NODE_VERSION = 22
+
+Depois rode:
+Manual Deploy -> Clear build cache & deploy
